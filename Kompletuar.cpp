@@ -1,6 +1,8 @@
 #include <iostream>
-#include <vector>
+#include <cmath>
+#include <iomanip>
 #include <string>
+#include <vector>
 using namespace std;
 
 // Function 1
@@ -328,6 +330,7 @@ int main() {
     vector<vector<int>> accounts;
 
     int numCustomers, numBanks;
+    cout<<"function for maximumWealth \n";
 
     cout << "Enter the number of customers: ";
     cin >> numCustomers;
@@ -349,12 +352,14 @@ int main() {
          int maxWealth = solution.maximumWealth(accounts);
          cout << "Maximum Wealth: " << maxWealth << endl;
          break;
-        }
+    }
+
         case 2: {
    Solution2 solution2;
    vector<string> words;
    char x;
     int numWords;
+    cout<<"function for find Words Containing 'x' \n";
     cout << "Enter the number of words: ";
     cin >> numWords;
     for (int i = 0; i < numWords; ++i) {
@@ -380,6 +385,7 @@ int main() {
    Solution3 solution3;
     vector<int> nums;
     int n;
+   cout<<"function for  Shuffle Array 'x' \n";
     cout << "Enter the number of elements in the array: ";
     cin >> n;
     cout << "Enter " << n << " elements for the array: ";
@@ -396,10 +402,12 @@ int main() {
     cout << endl;
     break;
     }
+   
     case 4: {
    Solution4 solution4;
     vector<string> operations;
     int numOperations;
+    cout<<"function for  final Value After Operations 'x' \n";
     cout << "Enter the number of operations: ";
     cin >> numOperations;
     cout << "Enter " << numOperations << " operations ('X++', '++X', 'X--', '--X'): ";
@@ -418,6 +426,7 @@ int main() {
     vector<int> nums;
     int size;
 
+    cout<<"function for  build Array  \n";
     cout << "Enter the size of the array: ";
     cin >> size;
 
@@ -442,7 +451,8 @@ int main() {
        Solution6 solution6;
     vector<int> nums;
     int size;
-
+    
+   cout<<"function for get Concatenation  \n";
     cout << "Enter the size of the array: ";
     cin >> size;
 
@@ -465,7 +475,7 @@ int main() {
    Solution7 solution7;
     vector<vector<int>> mat;
     int size;
-
+   cout << "function diagonal Sum\n";
     cout << "Enter the size of the matrix: ";
     cin >> size;
 
@@ -491,6 +501,7 @@ int main() {
    Solution8 solution8;
     vector<vector<int>> mat;
     int rows, cols;
+    cout << "function rowAndMaximumOnes\n";
 
     cout << "Enter the number of rows: ";
     cin >> rows;
@@ -513,135 +524,216 @@ int main() {
     }
 
     case 9: {
-        Solution9 solution9;
-        vector<vector<int>> grid;
-        // Input or generate grid matrix
+       Solution9 solution9;
+    vector<vector<int>> grid;
+    int gridSize;
+    cout << "function find Champion\n";
+    cout << "Enter the size of the grid: ";
+    cin >> gridSize;
 
-        int championIndex = solution9.findChampion(grid);
-        cout << "Champion Index: " << championIndex << endl;
-        break;
+    cout << "Enter 1 for win and 0 for loss for each player (row-wise):" << endl;
+    for (int i = 0; i < gridSize; ++i) {
+        vector<int> row;
+        cout << "Enter results for player " << (i + 1) << ": ";
+        for (int j = 0; j < gridSize; ++j) {
+            int result;
+            cin >> result;
+            row.push_back(result);
+        }
+        grid.push_back(row);
+    }
+
+    int championIndex = solution9.findChampion(grid);
+    cout << "Champion Index: " << championIndex << endl;
+    break;
     }
 
     case 10: {
-        Solution10 solution10;
-        vector<vector<int>> matrix;
-        // Input or generate matrix
+      Solution10 solution10;
+    vector<vector<int>> matrix;
+    int rows, cols;
+   cout << "function Transposed Matrix\n";
+    cout << "Enter the number of rows for the matrix: ";
+    cin >> rows;
+    cout << "Enter the number of columns for the matrix: ";
+    cin >> cols;
 
-        vector<vector<int>> transposed = solution10.transpose(matrix);
-        cout << "Transposed Matrix: " << endl;
-        for (auto row : transposed) {
-            for (int num : row) {
-                cout << num << " ";
-            }
-            cout << endl;
+    cout << "Enter the matrix elements row-wise:" << endl;
+    for (int i = 0; i < rows; ++i) {
+        vector<int> row;
+        cout << "Enter elements for row " << (i + 1) << ": ";
+        for (int j = 0; j < cols; ++j) {
+            int element;
+            cin >> element;
+            row.push_back(element);
         }
-        break;
+        matrix.push_back(row);
+    }
+
+    vector<vector<int>> transposed = solution10.transpose(matrix);
+    cout << "Transposed Matrix: " << endl;
+    for (auto row : transposed) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    break;
     }
 
     case 11: {
-        Solution11 solution11;
-        string ipAddress;
-        // Input or provide ipAddress string
+         Solution11 solution11;
+    string ipAddress;
+   cout<< "function for Transposed Matrix \n";
+    cout << "Enter the IP Address: ";
+    cin >> ipAddress;
 
-        string defangedIP = solution11.defangIPaddr(ipAddress);
-        cout << "Defanged IP Address: " << defangedIP << endl;
-        break;
+    string defangedIP = solution11.defangIPaddr(ipAddress);
+    cout << "Transposed Matrix: " << defangedIP << endl;
+    break;
     }
 
     case 12: {
-        Solution12 solution12;
-        vector<string> operations;
-        // Input or generate operations vector
+   Solution12 solution12;
+    vector<string> operations;
+   cout<< "function for x final Value After Operations\n";
+    int numOperations;
+    cout << "Enter the number of operations: ";
+    cin >> numOperations;
 
-        int finalVal = solution12.finalValueAfterOperations(operations);
-        cout << "Final Value after Operations: " << finalVal << endl;
-        break;
+    cout << "Enter operations (X++ or ++X or X-- or --X): ";
+    for (int i = 0; i < numOperations; ++i) {
+        string op;
+        cin >> op;
+        operations.push_back(op);
+    }
+
+    int finalVal = solution12.finalValueAfterOperations(operations);
+    cout << "Final Value after Operations: " << finalVal << endl;
+    break;
     }
 
     case 13: {
-        Solution13 solution13;
-        string jewels, stones;
-        // Input or provide jewels and stones strings
+   Solution13 solution13;
+    string jewels, stones;
+    cout<<"function for jewels and stones \n";
+    cout << "Enter the jewels string: ";
+    cin >> jewels;
+    cout << "Enter the stones string: ";
+    cin >> stones;
 
-        int jewelCount = solution13.numJewelsInStones(jewels, stones);
-        cout << "Number of Jewels in Stones: " << jewelCount << endl;
-        break;
+    int jewelCount = solution13.numJewelsInStones(jewels, stones);
+    cout << "Number of Jewels in Stones: " << jewelCount << endl;
+    break;
     }
 
     case 14: {
-        Solution14 solution14;
-        vector<string> words;
-        char x;
-        // Input or generate words and x
+   Solution14 solution14;
+    int wordCount;
+    char x;
+   cout<<"function find Words Containing  \n";
+    cout << "Enter the number of words: ";
+    cin >> wordCount;
+    
+    vector<string> words(wordCount);
+    cout << "Enter " << wordCount << " words: ";
+    for (int i = 0; i < wordCount; ++i) {
+        cin >> words[i];
+    }
 
-        vector<int> wordsContainingX = solution14.findWordsContaining(words, x);
-        cout << "Indices of words containing '" << x << "': ";
-        for (int idx : wordsContainingX) {
-            cout << idx << " ";
-        }
-        cout << endl;
-        break;
+    cout << "Enter the character to find: ";
+    cin >> x;
+
+    vector<int> wordsContainingX = solution14.findWordsContaining(words, x);
+    cout << "Indices of words containing '" << x << "': ";
+    for (int idx : wordsContainingX) {
+        cout << idx << " ";
+    }
+    cout << endl;
+    break;
     }
 
     case 15: {
-        Solution15 solution15;
-        string command;
-        // Input or provide command string
+   Solution15 solution15;
+    string command;
+   cout<<"function  goal \n";
+    cout << "Enter the command string: ";
+    cin >> command;
 
-        string interpretation = solution15.interpret(command);
-        cout << "Interpreted Command: " << interpretation << endl;
-        break;
+    string interpretation = solution15.interpret(command);
+    cout << "Interpreted Command: " << interpretation << endl;
+    break;
     }
 
     case 16: {
-        Solution16 solution16;
-        string s;
-        vector<int> indices;
-        // Input or provide s string and indices vector
+   Solution16 solution16;
+    string s;
+    vector<int> indices;
+   cout<<"function  restore String \n";
+    cout << "Enter the string (s): ";
+    cin >> s;
 
-        string restored = solution16.restoreString(s, indices);
-        cout << "Restored String: " << restored << endl;
-        break;
+    cout << "Enter indices (space-separated): ";
+    int index;
+    while (cin >> index) {
+        indices.push_back(index);
+        if (cin.get() == '\n') {
+            break;
+        }
+    }
+
+    string restored = solution16.restoreString(s, indices);
+    cout << "Restored String: " << restored << endl;
+    break;
     }
 
     case 17: {
-        Solution17 solution17;
-        double celsius;
-        // Input or provide celsius temperature
+   Solution17 solution17;
+    double celsius;
+   cout<<"function  for  convert Temperature \n";
+    cout << "Enter temperature in Celsius: ";
+    cin >> celsius;
 
-        vector<double> converted = solution17.convertTemperature(celsius);
-        cout << "Equivalent in Kelvin: " << converted[0] << ", Equivalent in Fahrenheit: " << converted[1] << endl;
-        break;
+    vector<double> converted = solution17.convertTemperature(celsius);
+    cout << "Equivalent in Kelvin: " << converted[0] << ", Equivalent in Fahrenheit: " << converted[1] << endl;
+    break;
     }
 
     case 18: {
-        Solution18 solution18;
-        int num;
-        // Input or provide num
+   Solution18 solution18;
+    int num;
+   cout<<"function  for smallest Even Multiple \n";
+    cout << "Enter a number: ";
+    cin >> num;
 
-        int smallestEvenMultiple = solution18.smallestEvenMultiple(num);
-        cout << "Smallest Even Multiple: " << smallestEvenMultiple << endl;
-        break;
+    int smallestEvenMultiple = solution18.smallestEvenMultiple(num);
+    cout << "Smallest Even Multiple: " << smallestEvenMultiple << endl;
+    break;
     }
 
     case 19: {
-        Solution19 solution19;
-        int num1, num2;
-        // Input or provide num1 and num2
+   Solution19 solution19;
+    int num1, num2;
+   cout<<"function for two numbers";
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
 
-        int sumResult = solution19.sum(num1, num2);
-        cout << "Sum: " << sumResult << endl;
-        break;
+    int sumResult = solution19.sum(num1, num2);
+    cout << "Sum: " << sumResult << endl;
+    break;
     }
 
     case 20: {
-        Solution20 solution20;
-        int n;
-        // Input or provide n
+   Solution20 solution20;
+    int n;
+   cout << "function for subtract Product And Sum \n ";
+    cout << "Enter a number: ";
+    cin >> n;
 
-        int difference = solution20.subtractProductAndSum(n);
-        cout << "Difference between Product and Sum: " << difference << endl;
-        break;
+    int difference = solution20.subtractProductAndSum(n);
+    cout << "Difference between Product and Sum: " << difference << endl;
+    break;
+
     }
 
     default:
